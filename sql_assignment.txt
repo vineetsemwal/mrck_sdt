@@ -1,0 +1,35 @@
+1) A company is managing details of projects along with the which employees are working in the projects
+
+Create a schema for the same
+
+Usecases 
+
+projects{
+
+id
+name
+startDate
+endate
+
+}
+
+employees{
+
+id
+firstname
+lastname
+birthdate
+}
+
+
+
+
+1) Add a Project
+2) Register an employee
+3) fetch all the employees working on a project  with project id foreg p1
+4) fetch all the projects on which employee has worked by employee id
+5) fetch count of employees working on individual projects
+6) fetch all employees who have birth date between startdate and end-date
+7) fetch all ongoing projects
+
+
