@@ -1,0 +1,117 @@
+use testdb2; 
+create table employees(id int ,name varchar(20), salary double(12,2));
+desc employees;
+
+insert into employees(id,name,salary) values(1,'ramesh',100000.50);
+
+select * from employees;
+select id,name from employees;
+alter table employees2 rename to employees;
+desc employees;
+
+alter table employees add column age tinyint;
+desc employees;
+select * from employees where id=1;
+alter table employees add constraint id_pk  primary key(id);
+delete from employees where name='deepika';
+
+
+update employees set name='dipika' where id=1;
+
+
+insert into employees(id,name,salary,age) values(2,'ramesh',200000,25);
+insert into employees(id,name,salary,age) values(4,'akshay',00000,25);
+
+
+alter table employees rename column agecol to age; 
+
+desc employees;
+
+alter table employees add constraint name_unique  unique(name);
+
+select * from employees where name ='ramesh' or name='deepika';
+select * from employees where name='akshay' and age>24;
+
+select * from employees where name like "%a%";
+
+
+insert into employees(id,name,salary,age) values(6,'chandra',400000,24);
+
+select * from employees;
+select * from employees where salary between 150000 and 400000;
+
+select * from employees where id in (2,3);
+select * from employees where name in ('deepika', 'ramesh');
+
+create table departments(id tinyint, name varchar(30), constraint dept_id_pk primary key(id) );
+alter table departments add column name varchar(30);
+
+desc departments;
+alter table employees add column did tinyint , add constraint foreign key(did) references departments(id);
+desc employees;
+
+select * from employees;
+insert into departments(id,name) values(1,'digital');
+insert into departments(id,name) values(3,'data');
+select * from departments;
+select * from employees;
+
+update employees set did=1 where id=2;
+
+#SELECT e.id,e.name,d.name FROM employees e, departments d where e.did=d.id and age>24;
+
+SELECT e.id empid,e.name empnmae,d.name deptname FROM employees e INNER JOIN departments d ON e.did=d.id where age>24;
+
+SELECT e.id empid,e.name empname,d.name deptname FROM employees e LEFT JOIN departments d ON e.did=d.id ;
+
+SELECT e.id empid,e.name empname,d.name deptname FROM employees e RIGHT JOIN departments d ON e.did=d.id ;
+
+#Full outer join
+SELECT e.id empid,e.name empname,d.name deptname FROM employees e LEFT JOIN departments d ON e.did=d.id 
+union 
+SELECT e.id empid,e.name empname,d.name deptname FROM employees e RIGHT JOIN departments d ON e.did=d.id ;
+
+#select * from employees where did in   (1,2,3);
+#first inner query will execute then outer query will execute using the result of inner query
+select * from employees where did in (select id from departments);
+
+select * from employees;
+update employees set age=23 where id=5;
+
+#Self Join (Find employees with same age)
+select distinct e1.id, e1.name,e1.age  from employees e1, employees e2 where e1.age=e2.age and e1.id!=e2.id;
+
+delete from employees where id =4;
+
+select  *  from employees e1, employees e2 ; 
+
+select  *  from employees e1, employees e2 where e1.id!=e2.id;
+
+select count(*) from employees;
+select  max(salary) from employees;
+select min(salary) from employees;
+select avg(salary)  from employees;
+select id, name,length(name) from employees;
+select id, name, concat(name,'-',age) nameage  from employees;
+
+select * from employees;
+select * from employees order by age  limit 1;
+
+
+#Aggregate queries
+
+insert into employees(id,name,salary,age,did) values(7,'divakar',200000,24,2);
+#aggregrating/grouping on deptmaent id and then returning those
+#departments  where employees count greater than 2
+#where clause is used to filter rows, having clause is used to filter on aggregrations
+select did,count(did) as empcount  from employees group by did having empcount >2;
+select did,sum(salary) as totaldeptsal  from employees group by did;
+desc employees;
+
+alter table employees add column birthdate  date;
+
+update employees set birthdate="1996-07-03" where id=7;
+
+select * from employees where birthdate>'1990-01-01';
+
+ 
