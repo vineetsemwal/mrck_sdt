@@ -1,0 +1,47 @@
+# assignment
+create database projectmsdb;
+use projectmsdb;
+create table employees(id int, firstname varchar(20),lastname varchar(20), birthdate date, constraint primary key(id));
+create table projects(id varchar(6), name varchar(20),startdate date , endate date,constraint primary key(id));
+show tables;
+desc employees;
+desc projects;
+create table employees_projects(eid int, pid varchar(6),
+ constraint eid_fk foreign key(eid)  references employees(id) ,
+constraint pid_fk foreign key(pid)  references projects(id), 
+constraint emp_proj_pj primary key(eid,pid)  
+   ); 
+ desc employees_projects;
+ 
+ insert into employees(id,firstname,lastname,birthdate) values(1,'suriendran','v', '2000-01-04');
+  insert into employees(id,firstname,lastname,birthdate) values(2,'srinath','s', '2001-01-05');
+
+ insert into projects(id,name,startdate) values('p01','citybank','2020-01-01');
+ insert into projects(id,name,startdate) values('p02','metrobank','2021-01-02');
+
+select * from employees;
+select * from projects;
+select * from employees_projects;
+insert into employees_projects(eid,pid) values(1,'p01');
+insert into employees_projects(eid,pid) values(2,'p01');
+insert into employees_projects(eid,pid) values(1,'p02');
+
+# fetch employees along with their project info
+select e.id empid, e.firstname, e.lastname, p.name projectname from employees_projects ep
+inner join projects p on ep.pid=p.id 
+inner join employees e on ep.eid=e.id ;
+
+# fetch a particular employee with id 1 along with project info
+select e.id empid, e.firstname, e.lastname, p.name projectname from employees_projects ep
+inner join projects p on ep.pid=p.id 
+inner join employees e on ep.eid=e.id 
+where e.id=1;
+
+# fetch a particularproject with all employees workig on it
+select e.id empid, e.firstname, e.lastname, p.name projectname from employees_projects ep
+inner join projects p on ep.pid=p.id 
+inner join employees e on ep.eid=e.id 
+where p.id='p01';
+
+
+
