@@ -1,4 +1,5 @@
- class Student {
+
+class Student {
     int id;
     String name;
     int age;
@@ -7,13 +8,12 @@
       *
       *  object.member
       *  this represents current object
+      *  Student st=new Student()
+      *  st.getName()
       */
-
     String getName() {
-        incrementAge();
-        return name;
+        return this.name;
     }
-
     int incrementAge() {
         return ++this.age;
     }

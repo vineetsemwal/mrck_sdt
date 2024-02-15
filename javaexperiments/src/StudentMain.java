@@ -1,11 +1,10 @@
-public class StudentMain {
+ class StudentMain {
 
     public static void main(String[] myargs) {
         Student student1=new Student();
         student1.id=1;
         student1.name="deepika";
         student1.age=24;
-
 
         Student student2=new Student();
         student2.id=2;
