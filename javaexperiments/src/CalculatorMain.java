@@ -12,5 +12,10 @@ public class CalculatorMain {
         System.out.println("cacly1 result="+calcy1Result);
         System.out.println("calcy2 result="+calcy2Result);
 
+        calculator1.clear();
+        System.out.println("calcy 1 ="+calculator1.memory);
+        System.out.println("calcy2="+calculator2.memory);
+
+
     }
 }
