@@ -1,0 +1,22 @@
+Create Customermanagement system
+
+
+
+
+ Customer{
+ id: long
+ firstName: String
+ lastName:String
+ age:int 
+
+}
+
+
+
+
+Userstories below
+1) Register customer 
+
+2) find customer by id
+
+3) print all customers in store
