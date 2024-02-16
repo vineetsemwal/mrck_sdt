@@ -20,6 +20,17 @@ public class Basics {
         Integer myobj=null;
         int i2=myobj; //auto unboxing
 
+        //String, Long, Integer, Boolean,Double
+        Integer obj=new Integer(30);
+        String textInt=obj.toString();// "30"
+        double doubleVal=obj.doubleValue();
+
+
+        int j=10;
+        String str="hello";
+        String str2=str+"bangalore";
+        String str3=""+j;
+
 
     }
 

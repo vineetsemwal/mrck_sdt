@@ -4,11 +4,22 @@ public class Employee {
     private int id;
     private String name;
     private int age;
+
+    private Employee manager;
+
     public Employee(int id, String name, int age){
         this.id=id;
         this.name=name;
         this.age=age;
 
+    }
+
+    public void assignManager(Manager manager){
+        this.manager=manager;
+    }
+
+    public Employee getManager() {
+        return manager;
     }
 
     public int getId() {

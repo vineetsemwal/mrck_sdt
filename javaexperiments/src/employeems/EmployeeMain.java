@@ -4,8 +4,10 @@ public class EmployeeMain {
 
     public static void main(String[] args) {
         EmployeeDataAccess dataAccess=new EmployeeDataAccess();
-        dataAccess.register(1,"deepika",24);
-        dataAccess.register(2,"akshay",25);
+        String languages[]={"java","python"};
+        String tools[]={"idea","eclipse"};
+        dataAccess.registerDeveloper(1,"deepika",24,languages,tools);
+        dataAccess.registerManager(2,"akshay",25,"city",10);
 
         Employee found=dataAccess.findById(2);
         System.out.println("employee found=" + found.getId() + "-" + found.getName()
