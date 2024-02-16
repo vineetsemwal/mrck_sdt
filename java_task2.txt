@@ -1,0 +1,38 @@
+Create Customermanagement system
+
+
+
+ BaseCustomer{
+ id: long
+ firstName: String
+ lastName:String
+ age:int 
+ balance:double
+
+}
+
+BusinessCustomer inherits BaseCustomer
+{
+
+ discount: double
+ offers: String[]
+ 
+}
+
+RegularCustomer inherits BaseCustomer{
+
+coupons:String[]
+
+
+}
+
+
+
+
+Userstories below
+1) Register customer 
+
+2) find customer by id
+
+3) print all customers in store
+
