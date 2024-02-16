@@ -26,5 +26,12 @@ public class EmployeeDataAccess {
       return null;
    }
 
+   public void printAll(){
+       for (int i = 0; i < store.length; i++) {
+           Employee iterated = store[i];
+           System.out.println("details=" + iterated.getId() + "-" + iterated.getName()
+                   + "-" + iterated.getAge());
+       }
+   }
 
 }

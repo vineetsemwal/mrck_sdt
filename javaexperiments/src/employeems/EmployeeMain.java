@@ -12,11 +12,7 @@ public class EmployeeMain {
                 + "-" + found.getAge());
 
         System.out.println("***printing all elements");
-        Employee allEmployees[]=dataAccess.getAll();
-        for (int i = 0; i < allEmployees.length; i++) {
-            Employee iterated = allEmployees[i];
-            System.out.println("details=" + iterated.getId() + "-" + iterated.getName()
-                    + "-" + iterated.getAge());
-        }
+        dataAccess.printAll();
+
     }
 }
