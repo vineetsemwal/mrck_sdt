@@ -1,15 +1,13 @@
 package vehiclems;
 
-public class Vehicle {
+public abstract class Vehicle {
     private String vehicleNumber;
 
     public Vehicle(String vehicleNo){
         this.vehicleNumber=vehicleNo;
     }
 
-     void  move(){
-        System.out.println(vehicleNumber+" vehicle moves");
-    }
+     abstract void  move();
 
     public String getVehicleNumber(){
         return vehicleNumber;
