@@ -27,12 +27,21 @@ coupons:String[]
 }
 
 
+Create contract for Data Acess
+ 
+interface ICustomerDataAccess{
 
+registerBusinessCustomer(*):BusinessCustomer
+registerRegularCustomer(*):RegularCustomer
+findById(id):Customer
 
-Userstories below
+}
+
+Userstories below, 
 1) Register customer 
 
 2) find customer by id
 
 3) print all customers in store
+
 
