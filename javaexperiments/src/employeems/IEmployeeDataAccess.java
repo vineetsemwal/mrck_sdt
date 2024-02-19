@@ -10,5 +10,4 @@ public interface IEmployeeDataAccess {
 
     Developer registerDeveloper(int id, String name,int age,String languages[],String tools[]);
 
-    void printAll();
 }

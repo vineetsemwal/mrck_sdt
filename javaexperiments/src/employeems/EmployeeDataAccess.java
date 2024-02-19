@@ -37,27 +37,6 @@ public class EmployeeDataAccess implements IEmployeeDataAccess{
       return null;
    }
 
-   @Override
-   public void printAll(){
-       for (int i = 0; i < store.length; i++) {
-           Employee iterated = store[i];
-           System.out.println("details=" + iterated.getId() + "-" + iterated.getName()
-                   + "-" + iterated.getAge());
-           if(iterated instanceof Manager){
-               System.out.println("manager details");
-               Manager manager=(Manager) iterated;
-               System.out.println("handling project="+manager.getHandlingProject()+"employees count="+manager.getMangingEmployeesCount());
-           }
-          if(iterated instanceof Developer){
-              System.out.println("developer details");
-              Developer developer=(Developer) iterated;
-              String[] languages=developer.getLangauges();
-              String [] tools=developer.getTools();
-              System.out.println("first language="+languages[0]);
-              System.out.println("first tool="+tools[0]);
-          }
 
-       }
-   }
 
 }
