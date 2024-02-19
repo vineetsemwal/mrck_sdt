@@ -1,14 +1,16 @@
 package employeems;
 
-public class EmployeeDataAccess {
+public class EmployeeDataAccess implements IEmployeeDataAccess{
    private   Employee store[] = new Employee[2];
 
    private int index;
 
-   public Employee[] getAll(){
+   @Override
+   public Employee[] getAllEmployees(){
        return store;
    }
 
+   @Override
   public Manager registerManager(int id, String name,int age,String project,int empCount){
        Manager manager=new Manager(id,name,age,project,empCount);
        store[index]=manager;
@@ -16,6 +18,7 @@ public class EmployeeDataAccess {
        return manager;
    }
 
+   @Override
     public Developer registerDeveloper(int id, String name,int age,String languages[],String tools[]){
         Developer developer=new Developer(id,name,age,languages,tools);
         store[index]=developer;
@@ -23,6 +26,7 @@ public class EmployeeDataAccess {
         return developer;
     }
 
+    @Override
    public Employee findById(int id){
       for (int i=0;i<store.length;i++){
           Employee iterated=store[i];
@@ -33,6 +37,7 @@ public class EmployeeDataAccess {
       return null;
    }
 
+   @Override
    public void printAll(){
        for (int i = 0; i < store.length; i++) {
            Employee iterated = store[i];

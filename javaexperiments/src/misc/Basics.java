@@ -1,13 +1,13 @@
 package misc;
 
-import calculator.Calculator;
+import calculator.SamsungCalculator;
 
 /*
 -128  to 127 // byte
  */
 public class Basics {
     public static void main(String[] args) {
-        Calculator calculator=new Calculator();
+        SamsungCalculator calculator=new SamsungCalculator();
         int result=calculator.add(1,2);
         int var2=128;
         byte var1=(byte)var2;

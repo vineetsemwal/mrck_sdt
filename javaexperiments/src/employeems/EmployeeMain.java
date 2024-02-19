@@ -3,7 +3,7 @@ package employeems;
 public class EmployeeMain {
 
     public static void main(String[] args) {
-        EmployeeDataAccess dataAccess=new EmployeeDataAccess();
+        IEmployeeDataAccess dataAccess=new EmployeeDataAccess();
         String languages[]={"java","python"};
         String tools[]={"idea","eclipse"};
         dataAccess.registerDeveloper(1,"deepika",24,languages,tools);
