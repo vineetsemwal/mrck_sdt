@@ -2,6 +2,7 @@ package employeems;
 
 public class EmployeeApp {
 
+
     public static void main(String[] args) {
         EmployeeApp app = new EmployeeApp();
         app.runApp();
@@ -25,8 +26,14 @@ public class EmployeeApp {
 
 
     public void printAll(Employee[] employees) {
-        for (int i = 0; i < employees.length; i++) {
-            Employee iterated = employees[i];
+        //for (int i = 0; i < employees.length; i++) {
+          //for each loop  syntax (DataType element:array)
+          //iterated is the element fetched at every iteration
+           for (Employee iterated:employees){
+           // Employee iterated = employees[i];
+            if(iterated==null){
+                continue;
+            }
             System.out.println("details=" + iterated.getId() + "-" + iterated.getName()
                     + "-" + iterated.getAge());
             if (iterated instanceof Manager) {
