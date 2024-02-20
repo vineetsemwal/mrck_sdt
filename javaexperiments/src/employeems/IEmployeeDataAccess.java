@@ -4,10 +4,12 @@ public interface IEmployeeDataAccess {
 
     Employee[] getAllEmployees();
 
-    Employee findById(int id);
+    Employee findById(int id)throws InvalidEmployeeIDException, EmployeeNotFoundException;
 
-    Manager registerManager(int id, String name,int age,String project,int empCount);
+    Manager registerManager( String name,int age,String project,int empCount)
+            throws InvalidEmployeeNameException,InvalidAgeException,InvalidProjectException, InvalidEmployeesCountException;
+    Developer registerDeveloper( String name,int age,String languages[],String tools[])
+            throws InvalidEmployeeNameException,InvalidAgeException,InvalidLanguagesException,InvalidToolsException;
 
-    Developer registerDeveloper(int id, String name,int age,String languages[],String tools[]);
 
-}
+    }
