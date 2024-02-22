@@ -41,4 +41,22 @@ public class Employee {
     public void setAge(int age) {
         this.age = age;
     }
+
+    /*
+    Employee emp1=new Employee(1,"chandra",22);
+     Employee emp2=  new Employee(2,"chandra",22) ;
+        boolean equals=emp1.equals(emp2);
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if(this==obj){
+            return true;
+        }
+        if(obj==null || !(obj instanceof Employee)){
+            return false;
+        }
+        Employee that=(Employee)obj;
+        return id==that.id;
+
+    }
 }
