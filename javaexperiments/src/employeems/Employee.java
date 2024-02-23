@@ -48,15 +48,25 @@ public class Employee {
         boolean equals=emp1.equals(emp2);
      */
     @Override
-    public boolean equals(Object obj) {
-        if(this==obj){
+    public boolean equals(Object objArg) {
+        System.out.println("arg="+objArg);
+        if(this==objArg){
             return true;
         }
-        if(obj==null || !(obj instanceof Employee)){
+        if(objArg==null || !(objArg instanceof Employee)){
             return false;
         }
-        Employee that=(Employee)obj;
+        Employee that=(Employee)objArg;
         return id==that.id;
 
     }
+
+
+    @Override
+    public String toString() {
+        String result=id+"-"+name+"-"+age;
+        return result;
+    }
+
+
 }

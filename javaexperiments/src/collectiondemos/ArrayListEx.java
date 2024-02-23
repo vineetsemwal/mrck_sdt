@@ -3,28 +3,41 @@ package collectiondemos;
 import employeems.Employee;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 
 public class ArrayListEx {
     public static void main(String[] args) {
-        List<Employee>oldList=new ArrayList<>();
-        oldList.add(new Employee(1,"vagisa",23));
-        oldList.add(new Employee(2,"akshita",24));
+        List<Product>oldList=new LinkedList<>();
+        oldList.add(new Product(1,"galaxy-g1",20000));
+        oldList.add(new Product(2,"galaxy-g2",30000));
 
-        List<Employee> list=new ArrayList<>(100);
-        list.add(new Employee(3,"divya",24));
-        list.add(new Employee(4,"divakar",25));
+        List<Product> list=new ArrayList<>(3);
+        list.add(new Product(3,"iphone-12",50000));
+        list.add(new Product(4,"iphone-13",60000));
 
         list.addAll(oldList);
-        for (Employee employee :list){
-            System.out.println("employee="+employee.getId()+"-"+employee.getName());
-        }
-        list.set(0, new Employee(3,"srinath",23));
+        System.out.println("list"+list);
+
+        list.set(0, new Product(5,"lg-1",30000));
         System.out.println("size="+list.size());
         list.remove(0);
+      //  Collections.sort(list);
+        list.sort(new IDComparatorAsc());
+        System.out.println("****after sorting by id");
+        for (Product product :list){
+            System.out.println("product="+product.getId()+"-"+product.getName());
+        }
+        list.sort(new ProductNameComparator());
+        System.out.println("******after sorting by name");
+        for (Product product :list){
+            System.out.println("product="+product.getId()+"-"+product.getName());
+        }
         System.out.println("size after removing element="+list.size());
-        Employee searchFor=new Employee(1,"vagisa",23);
+        Product searchFor=new Product(2,"galaxy-g2",30000);
         boolean contains= list.contains(searchFor);
         System.out.println("contains="+contains);
+        System.out.println("employee="+searchFor);
     }
 }
