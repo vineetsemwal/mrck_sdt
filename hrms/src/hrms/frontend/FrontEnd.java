@@ -1,0 +1,25 @@
+package hrms.frontend;
+
+import hrms.entity.JobApplicant;
+import hrms.exceptions.InvalidAgeException;
+import hrms.service.IJobApplicantService;
+import hrms.service.JobApplicantServiceImpl;
+
+import java.util.Set;
+
+public class FrontEnd {
+    private IJobApplicantService service=new JobApplicantServiceImpl();
+
+    public void register(String firstName, String lastName, int age, Set<String> languages, double experience){
+        try {
+
+            JobApplicant applicant=service.register(firstName, lastName, age, languages,  experience);
+            System.out.println("id="+applicant.getId()+" firstname="+applicant.getFirstName()+" exp="+applicant.getExperience()
+                    +" languages="+applicant.getLanguages());
+
+        }catch (InvalidAgeException e){
+            System.out.println("please check the age you have provided "+e.getMessage());
+        }
+    }
+
+}

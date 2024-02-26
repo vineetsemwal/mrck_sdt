@@ -1,0 +1,39 @@
+A company want to create an application to manage the applican'ts profiles appearing for the selection
+
+Use Map<Long,JobApplicant> as in memory store
+
+1) Register JobApplicant
+2)Fetch JobApplicant by id
+3) Fetch JobApplicants by firstName in sorted order of Age
+4) Fetch all applicants in sorted order of experience
+5) Fetch all JobApplicants who have experience in java
+
+
+JobApplicant{
+
+id: Long
+firstName:String
+lastName:String
+age: int
+languages:Set<String>
+experience: double
+}
+
+IJobApplicantService{
+
+register(firstName, lastName, age, languages, experience): jobApplicant 
+findById(id): JobApplicant
+fectchAllByExperience()
+findByFirstName(firname)
+fetchAllByLanguage(language)
+}
+
+Data Access Contract
+ 
+IJobDataAccess{
+save(applicant)
+findById(id): JobApplicant
+fectchAll()
+findByFirstName(firname)
+fetchAllByLanguage(language)
+}
