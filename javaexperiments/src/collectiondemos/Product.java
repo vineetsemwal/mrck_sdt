@@ -50,6 +50,7 @@ public class Product implements Comparable<Product>{
         return id;
     }
 
+    //prod1.comareTo(prod2)
     @Override
     public int compareTo(Product that) {
         int compare=id-that.id;
