@@ -16,7 +16,6 @@ public class DateTimeEx {
         if (today.isAfter(date1)) {
             System.out.println("yes today is after date1");
             date1 = date1.minusDays(1);
-
         }
 
         System.out.println("all zones");
