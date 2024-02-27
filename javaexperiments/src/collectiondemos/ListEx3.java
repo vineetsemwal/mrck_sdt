@@ -6,6 +6,8 @@ import java.util.concurrent.LinkedBlockingDeque;
 
 public class ListEx3 {
     public static void main(String[] args) {
+
+
     //  experiemnt with implementations linked LinkedList,
           Deque<Product> queue = new LinkedBlockingDeque<>(1);
         // add at the start, if queue is full,then it  throws  IllegalStateException
@@ -18,11 +20,14 @@ public class ListEx3 {
         // fetch first element of Q
         Product first1 = queue.peekFirst();
 
+
         // fetch first element of Q and element will be removed from the Queue, if Q is empty null is returned
         Product first2 = queue.pollFirst();
 
         // fetches first element , if Q is empty, throws NoSuchElementException
         Product first3=queue.getFirst();
+
+        Product p=new Product(1, "imac", 80000);
 
 
     }

@@ -2,7 +2,7 @@ package collectiondemos;
 
 import java.util.Objects;
 
-public class Product implements Comparable<Product>{
+public class Product implements Comparable<Product>,Cloneable{
     private int id;
     private String name;
     private double price;
@@ -70,5 +70,10 @@ public class Product implements Comparable<Product>{
     public String toString() {
         String str="product-"+id+"-"+name+"-"+price;
          return str;
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 }
