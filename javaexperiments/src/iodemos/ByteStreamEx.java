@@ -11,7 +11,6 @@ public class ByteStreamEx {
     }
 
     public void runDemo() {
-
         try (
                 InputStream inputStream = new FileInputStream("C:/Users/vineets/Documents/ioexp/in.txt");
                 OutputStream outputStream = new FileOutputStream("C:/Users/vineets/Documents/ioexp/out.txt");
