@@ -20,12 +20,12 @@ public class ConsumerTest {
         IPrint print3=(msg)->{
             System.out.println("Today msg is "+msg);
         };
+        Consumer<String>print4=(msg)-> System.out.println("greeting is "+msg);
 
         print2.print("bye");
 
         print3.print("hi");
 
-        Consumer<String>print4=(msg)-> System.out.println("greeting is "+msg);
         print4.accept("before lunch");
 
 
