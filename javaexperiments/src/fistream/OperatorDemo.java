@@ -9,6 +9,7 @@ public class OperatorDemo {
         ISquare calcy1=(num)->num*num;
         int result1=calcy1.square(10);
         System.out.println("result1="+result1);
+
         UnaryOperator<Integer>operator=(num)->num*num;
         int result2=operator.apply(4);
         System.out.println("result2="+result2);
