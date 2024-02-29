@@ -11,7 +11,10 @@ public class StreamApiDemo2 {
         List<String> list = new ArrayList<>();
         list.add("ajay");
         list.add("akshay");
+        list.add("ajay");
+        list.add("anjali");
         list.add("divya");
+        list.add("deepika");
         Predicate<String> predicate = element -> {
             //System.out.println("inside predicate " + element);
             char firstChar = element.charAt(0);
@@ -19,11 +22,18 @@ public class StreamApiDemo2 {
             return start;
         };
         Stream<String> stream1 = list.stream();
-        Stream<String> stream2 = stream1.filter(predicate);
-        Consumer<String>consumer= input->System.out.println(input);
-        stream2.forEach(consumer);
 
-        System.out.println("original src="+list);
+        Stream<String> stream2 = stream1.filter(predicate);
+
+        Stream<String> stream3 = stream2.limit(3);
+        Stream<String> stream4 = stream3.distinct();
+
+     //   Consumer<String> consumer = input -> System.out.println(input);
+        //stream4.forEach(consumer);
+       long count=stream4.count();
+       System.out.println("count="+count);
+
+        System.out.println("original src=" + list);
 
     }
 }
