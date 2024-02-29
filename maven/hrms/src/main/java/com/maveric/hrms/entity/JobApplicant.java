@@ -1,5 +1,7 @@
 package com.maveric.hrms.entity;
 
+
+
 import  java.util.*;
 
 public class JobApplicant {
@@ -10,6 +12,7 @@ public class JobApplicant {
    private int age;
    private Set<String> languages;
     private double experience;
+
 
     public long getId() {
         return id;
