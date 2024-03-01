@@ -5,7 +5,9 @@ import com.maveric.springdemo.shapes.Square;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
+@PropertySource("application.properties")
 @ComponentScan("com.maveric.springdemo")
 @Configuration
 public class JavaConfig {

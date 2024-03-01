@@ -4,6 +4,8 @@ import com.maveric.springdemo.shapes.IShape;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+
 @Component
 public class Canvas {
 
@@ -24,5 +26,10 @@ public class Canvas {
     public void drawShape() {
         double area = shape.area();
         System.out.println("drawing shape=" + area+" for shape"+shape.getClass().getName());
+    }
+
+    @PostConstruct
+    public void init(){
+        System.out.println("***inside Canvas init shape object type="+shape.getClass().getName()+" area="+shape.area());
     }
 }
