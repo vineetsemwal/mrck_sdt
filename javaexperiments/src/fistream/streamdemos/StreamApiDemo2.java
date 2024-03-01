@@ -33,7 +33,7 @@ public class StreamApiDemo2 {
     }
 
     /*
-       fetch all Strings starting from a
+       prints all Strings starting from a
      */
     public void printAllStringsStartingFromLetterA(Collection<String> input) {
         System.out.println("****prints all strings starting from letter a");
@@ -76,7 +76,7 @@ public class StreamApiDemo2 {
     }
 
     /*
-     reduce functionality demo
+     reduce functionality demo, prints sum of all ids
      */
     public void printSumOfAllIDs(Collection<Product> input) {
         System.out.println("*****print sum of all ids of products");
@@ -94,6 +94,10 @@ public class StreamApiDemo2 {
 
     }
 
+    /**
+     * prints ids of all products
+     * @param input is collection of products
+     */
     public void printFetchIdsOfAllProducts2(Collection<Product> input) {
         List<Integer> list = input.stream()
                 .map(product -> product.getId())
@@ -103,13 +107,14 @@ public class StreamApiDemo2 {
     }
 
     /*
-     fetching unique elements
+     prints unique elements from collection
      */
-    public List<String> findUniqueStrings(Collection<String> input) {
+    public void printUniqueStrings(Collection<String> input) {
+        System.out.println("******print unique strings");
         Stream<String> stream1 = input.stream();
         Stream<String> stream2 = stream1.distinct();
         List<String> list = stream2.toList();
-        return list;
+        System.out.println("list="+list);
     }
 
 
