@@ -4,6 +4,7 @@ import com.maveric.hrms.entity.JobApplicant;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 public class JobDataAccessImpl implements IJobDataAccess {
     private Map<Long, JobApplicant> store = new HashMap<>();
@@ -22,8 +23,13 @@ public class JobDataAccessImpl implements IJobDataAccess {
     }
 
     @Override
-    public JobApplicant findById(long id) {
+    public Optional<JobApplicant> findById(long id) {
         JobApplicant applicant = store.get(id);
-        return applicant;
+        if(applicant==null){
+           Optional<JobApplicant>optional= Optional.empty();
+           return optional;
+        }
+        Optional<JobApplicant>optional= Optional.of(applicant);
+        return optional;
     }
 }
