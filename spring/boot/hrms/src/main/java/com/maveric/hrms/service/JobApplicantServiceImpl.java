@@ -31,6 +31,7 @@ public class JobApplicantServiceImpl implements IJobApplicantService{
         dao.save(applicant);
         return applicant;
     }
+
     private void validateAge(int age) throws InvalidAgeException{
         if(age<18 || age>60){
             throw new InvalidAgeException("age is invalid "+age);

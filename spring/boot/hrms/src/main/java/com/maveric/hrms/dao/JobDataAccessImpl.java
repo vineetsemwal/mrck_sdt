@@ -1,6 +1,7 @@
 package com.maveric.hrms.dao;
 
 import com.maveric.hrms.entity.JobApplicant;
+import com.maveric.hrms.store.Store;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
@@ -10,7 +11,6 @@ import java.util.Optional;
 
 @Repository
 public class JobDataAccessImpl implements IJobDataAccess {
-    private Map<Long, JobApplicant> store = new HashMap<>();
 
     private long generatedId;
 
@@ -22,12 +22,12 @@ public class JobDataAccessImpl implements IJobDataAccess {
     public void save(JobApplicant applicant) {
         long newId = newID();
         applicant.setId(newId);
-        store.put(newId, applicant);
+        Store.getStore().put(newId, applicant);
     }
 
     @Override
     public Optional<JobApplicant> findById(long id) {
-        JobApplicant applicant = store.get(id);
+        JobApplicant applicant = Store.getStore().get(id);
         if(applicant==null){
            Optional<JobApplicant>optional= Optional.empty();
            return optional;
