@@ -10,14 +10,19 @@ public class CanvasMain {
 
     public static void main(String[] args) {
         ApplicationContext context = new AnnotationConfigApplicationContext(JavaConfig.class);
-        IShape shape1 = context.getBean(IShape.class);
+
+
+        Canvas canvas1 = context.getBean(Canvas.class);
+        canvas1.drawShape();
+
+        Canvas canvas2=context.getBean(Canvas.class);
+
+        boolean same=canvas1==canvas2;
+        System.out.println("is same same ? "+same);
+
+
+        IShape shape1 = context.getBean("circle",IShape.class);
         System.out.println("shape=" + shape1.getClass().getName() + " area=" + shape1.area());
-
-
-        Canvas canvas = context.getBean(Canvas.class);
-        canvas.drawShape();
-
-
 
     }
 }

@@ -9,6 +9,10 @@ public class ConstantEx1 {
         boolean same=lunch2.equals(lunch);
         DayBreak morningTea=DayBreak.MorningTeaBreak;
         String break1Name=lunch.name();
+        if(lunch==lunch2){
+            System.out.println("same object");
+        }
+
         System.out.println("lunch="+break1Name+" "+lunch.ordinal());
         System.out.println("lunch time="+lunch.getStartTime()+" "+lunch.getEndTime());
         System.out.println("morning tea="+morningTea.name()+" "+morningTea.ordinal());

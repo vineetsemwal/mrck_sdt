@@ -1,9 +1,11 @@
 package com.maveric.springdemo.shapes;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Circle implements IShape {
     private double radius;
-    public Circle(double radius){
-        this.radius=radius;
+    public Circle(){
     }
     @Override
     public double area() {
