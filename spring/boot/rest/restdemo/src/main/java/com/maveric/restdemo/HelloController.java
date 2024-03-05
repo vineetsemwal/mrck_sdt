@@ -1,7 +1,12 @@
 package com.maveric.restdemo;
 
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -10,6 +15,8 @@ import java.util.Map;
 /*
  urls- methods
  */
+@Validated
+@RequestMapping("/customers")
 @RestController
 public class HelloController {
 
@@ -26,20 +33,20 @@ public class HelloController {
      * uri -- /customers/1
      */
 
-    @GetMapping("/customers/{id}")
-    public ResponseEntity<Customer> findByID(@PathVariable int id) {
+    @GetMapping("/{id}")
+   // @RequestMapping(method = RequestMethod.GET,path = "/{id}")
+    public ResponseEntity<Customer> findByID(@PathVariable @Min(value = 1) int id)throws Throwable {
         Customer customer = store.get(id);
         if (customer==null){
-         ResponseEntity<Customer>response=  new ResponseEntity<>(HttpStatus.NOT_FOUND);
-         return  response;
+        throw  new CustomerNotFoundException("customer not found");
         }
         ResponseEntity<Customer>response=new ResponseEntity<>(customer,HttpStatus.OK);
         return response;
     }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping("/customers")
-    public String register(@RequestBody Customer requestData) {
+    @PostMapping
+    public String register(@RequestBody @NotNull @Valid Customer requestData) {
         int id = newId();
         requestData.setId(id);
         store.put(id, requestData);
@@ -47,8 +54,8 @@ public class HelloController {
         return msg;
     }
 
-    @PutMapping("/customers/{id}")
-    public String changeDetails(@RequestBody Customer requestData, @PathVariable int id) {
+    @PutMapping("/{id}")
+    public String changeDetails(@RequestBody @NotNull @Valid Customer requestData, @Min(1)@PathVariable int id) {
         Customer stored = store.get(id);
         stored.setName(requestData.getName());
         stored.setAge(requestData.getAge());
@@ -56,13 +63,13 @@ public class HelloController {
         return msg;
     }
 
-
+/*
     @GetMapping("/welcome")
     public String greet() {
         String msg = "Welcome to REST API";
         return msg;
 
     }
-
+*/
 
 }

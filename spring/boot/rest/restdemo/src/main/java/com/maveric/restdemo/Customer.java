@@ -1,8 +1,13 @@
 package com.maveric.restdemo;
 
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+
 public class Customer {
     private int id;
+    @NotBlank(message="name can't be empty")
     private String name;
+    @Min(value = 1,message = "age cant be zero or negative")
     private int age;
 
     public int getId() {
