@@ -1,4 +1,4 @@
-package com.maveric.hrms;
+package com.maveric.hrms.service;
 
 import com.maveric.hrms.entity.JobApplicant;
 import com.maveric.hrms.exceptions.InvalidAgeException;

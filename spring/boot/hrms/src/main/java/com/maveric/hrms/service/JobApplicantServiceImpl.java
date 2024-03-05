@@ -18,11 +18,13 @@ public class JobApplicantServiceImpl implements IJobApplicantService{
         this.dao=dao;
     }
 
+
+
     @Override
-    public JobApplicant register(String firstName, String lastName, int age, Set<String> languages, double experience)
+    public JobApplicant register(final String firstName,final String lastName,final int age,final Set<String> languages,final double experience)
     throws InvalidAgeException{
         validateAge(age);
-        JobApplicant applicant=new JobApplicant();
+        JobApplicant applicant=newJobApplicant();
         applicant.setFirstName(firstName);
         applicant.setLastName(lastName);
         applicant.setExperience(experience);
@@ -32,13 +34,19 @@ public class JobApplicantServiceImpl implements IJobApplicantService{
         return applicant;
     }
 
-    private void validateAge(int age) throws InvalidAgeException{
+    JobApplicant newJobApplicant(){
+        return new JobApplicant();
+    }
+
+
+     void validateAge(final int age) throws InvalidAgeException{
         if(age<18 || age>60){
             throw new InvalidAgeException("age is invalid "+age);
         }
+
     }
 
-    public JobApplicant findById(long id)throws ApplicantNotFoundException{
+    public JobApplicant findById(final long id)throws ApplicantNotFoundException{
        Optional<JobApplicant>optional= dao.findById(id);
        if(optional.isEmpty()){
            throw new ApplicantNotFoundException("applicant not found by id "+id);
